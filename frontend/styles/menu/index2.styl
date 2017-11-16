@@ -1,0 +1,25 @@
+.menu
+
+  margin 10px
+  font-size 20px
+
+  &__list
+    padding 0
+    margin 0 0 0 40px
+    display none
+
+  &__title-icon
+    background url("sprite.svg") no-repeat
+    margin-right 4px
+    background-position 0 0
+    width 16px
+    height 16px
+
+  &_open &__title-icon
+    background url("sprite.svg") no-repeat
+    background-position 0 20%
+    width 16px
+    height 16px
+    
+  &_open &__list
+      display block
