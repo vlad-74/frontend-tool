@@ -8,7 +8,8 @@
 
 ### gulp dev вызывает батник с командами : set "NODE_ENV=development" и gulp dev_replace&gulp develop;
 
+### gulp prod вызывает батник с командами : set "NODE_ENV=prod" и gulp prod_replace&gulp develop;
+
 1. В режиме dev реализованы: logger || .styl =>.css || sourcemaps || спрайт из картинок|| browserSync - перезагрузка при изменениях 
 
 2. В режиме prod реализованы: .styl =>.css || спрайт из картинок  || минимизация || добавление хеша в название файлов || прописывание путей с хешом в html файле
-
