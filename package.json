@@ -1,21 +1,10 @@
 {
-  "name": "frontend-demo-snippets",
-  "version": "1.0.1",
-  "description": "snippets, demo, javascript, css, myFunctions",
+  "name": "frontend-tool",
+  "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "gulpbuild": "set NODE_ENV=production"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/vlad-74/frontend-demo-snippets.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/vlad-74/frontend-demo-snippets/issues"
-  },
+  "repository": "https://github.com/vlad-74/frontend-tool.git",
+  "author": "Vladimi Kurguzov <kurguzov74@gmail.com>",
+  "license": "MIT",
   "dependencies": {
     "assets-webpack-plugin": "^3.2.0",
     "babel-core": "^6.4.0",
@@ -23,16 +12,9 @@
     "babel-loader": "^6.2.1",
     "babel-preset-es2015": "^6.3.13",
     "browser-sync": "^2.18.13",
-    "connect": "^3.6.5",
-    "connect-mongo": "^2.0.0",
     "cookie": "^0.3.1",
     "debug": "^3.1.0",
     "del": "^2.2.0",
-    "ect": "^0.5.9",
-    "ejs": "^2.5.7",
-    "ejs-locals": "^1.0.2",
-    "express": "^3.21.2",
-    "fs": "0.0.1-security",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-babel": "^6.1.1",
@@ -63,18 +45,12 @@
     "help-functions": "^1.0.36",
     "json-loader": "^0.5.7",
     "lazypipe": "^1.0.1",
-    "mongodb": "^2.2.33",
-    "mongoose": "^4.12.3",
     "nconf": "^0.8.5",
     "node-notifier": "^5.1.2",
     "open": "0.0.5",
-    "socket.io": "^2.0.4",
     "stream-combiner2": "^1.1.1",
     "stylus": "^0.54.5",
     "through2": "^2.0.3",
-    "webpack": "^1.12.11",
-    "winston": "^2.4.0",
-    "ws": "^3.2.0"
-  },
-  "homepage": "https://github.com/vlad-74/frontend-demo-snippets#readme"
+    "webpack": "^1.12.11"
+  }
 }
