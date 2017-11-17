@@ -1,1 +1,0 @@
-webpackJsonp([1],{5:function(c,n,a){(function(c){"use strict";alert("Dynamic works 555");var n=a(3)(c);n("ПРОСТОЙ ТЕКСТ ЛОГА222")}).call(n,a(1)(c))}});

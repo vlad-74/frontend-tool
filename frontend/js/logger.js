@@ -1,5 +1,5 @@
 // var log = require('logger')(module);
-global.accessLoger = false;
+global.accessLoger = true;
 
 module.exports = function(module) {
   return function(/* ... */) {

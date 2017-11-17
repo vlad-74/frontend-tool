@@ -1,6 +1,7 @@
 'use strict';
 
 var log = require('./logger')(module);
+let a = 111111111111111;
 import Menu from './menu';
 
 new Menu({
@@ -14,4 +15,5 @@ document.querySelector('.page__header').onclick = function() {
 };
 
 log('ПРОСТОЙ ТЕКСТ ЛОГ', accessLoger)
-console.log('accessLoger = ', accessLoger)
+// debugger;
+console.log('accessLoger = ', accessLoger, a)
