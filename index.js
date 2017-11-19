@@ -1,9 +1,6 @@
 var static = require('node-static');
-
-var file = new static.Server('./public');
-
 var open = require("open");
-open(__dirname + "/debugger/inspector.bat");
+var file = new static.Server('./public');
 
 require('http').createServer(function (request, response) {
 debugger; // остановка!!!!!!!!!  	
@@ -15,5 +12,5 @@ debugger; // остановка!!!!!!!!!
 
 
 setTimeout(function(){
-	open("http://127.0.0.1:3000");
+	open("http://127.0.0.1:3000", "firefox");
 }, 2000)
