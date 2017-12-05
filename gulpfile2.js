@@ -8,7 +8,6 @@ const gulplog = require('gulplog');
 const AssetsPlugin = require('assets-webpack-plugin');
 const webpack = require('webpack');
 const notifier = require('node-notifier');
-
 const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
 
 function lazyRequireTask(taskName, path, options) {
@@ -78,8 +77,6 @@ const wbpck = function(callback) {
     watch:   isDevelopment,
     devtool: isDevelopment ? 'cheap-module-inline-source-map' : null,
     module:  {
-      exprContextRegExp: /$^/,
-      exprContextCritical: false, //убираем warnings (с help-functions их много)
       loaders: [{
         test:    /\.js$/,
         include: path.join(__dirname, "frontend"),
@@ -97,6 +94,13 @@ const wbpck = function(callback) {
 
   if (!isDevelopment) {
     options.plugins.push(
+        new webpack.optimize.UglifyJsPlugin({
+          compress: {
+            // don't show unreachable variables etc
+            warnings:     false,
+            unsafe:       true
+          }
+        }),
         new AssetsPlugin({
           filename: 'webpack.json',
           path:     __dirname + '/manifest',
@@ -141,6 +145,7 @@ const wbpck = function(callback) {
 
 gulp.task('webpack', wbpck);
 
+// gulp.task('build', gulp.series('clean', 'styles_svg', 'styles_assets', gulp.parallel( 'styles', 'webpack'), 'assets'));
 gulp.task('build', gulp.series('clean', 'styles_svg', 'styles_assets', 'styles', gulp.parallel( 'webpack'), 'assets'));
 
 gulp.task('watch', function() {
@@ -155,12 +160,25 @@ lazyRequireTask('serve', './gulp/serve', {
   src: 'public'
 });
 
-lazyRequireTask('minify', './gulp/minify', {
-  from: 'public/js/*.js',
-  to: 'public/js'
-});
+let uglifyes = require('uglify-es');
+let composer = require('gulp-uglify/composer');
+let uglify = composer(uglifyes, console);
 
-gulp.task('develop', gulp.series('build', 'minify', gulp.parallel('watch', 'serve')));
+gulp.task('develop', gulp.series('build',  gulp.parallel('watch', 'serve')));
+
+// gulp.task('dev',
+//     gulp.series(
+//         'build',
+//         gulp.parallel(
+//             'serve',
+//             function() {
+//               gulp.watch('frontend/styles/**/*.styl', gulp.series('styles'));
+//               gulp.watch('frontend/assets/**/*.*', gulp.series('assets'));
+//               gulp.watch('frontend/styles/**/*.{svg,png}', gulp.series('styles_svg', 'styles_assets'));
+//             }
+//         )
+//     )
+// );
 
 lazyRequireTask('lint', './gulp/lint', {
   cacheFilePath: process.cwd() + '/tmp/lintCache.json',
@@ -180,6 +198,7 @@ lazyRequireTask('prod_replace', './gulp/accesslogger', {
 lazyRequireTask('prod', './gulp/setnodeenv', {
   path: 'gulp_prod.bat'
 });
+// gulp.task('prod', gulp.series('prodaction', 'minify'));
 
 lazyRequireTask('dev', './gulp/setnodeenv', {
   path: 'gulp_dev.bat'
