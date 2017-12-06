@@ -53,7 +53,9 @@ lazyRequireTask('styles_assets', './gulp/styles_assets', {
 //ПРОПИСЫВАЕТ ПУТИ CSS И JS ФАЙЛОВ С ХЕШОМ(!isDevelopment) ИЛИ БЕЗ В html ФАЙЛЕ
 lazyRequireTask('assets', './gulp/assets', {
   src: 'frontend/assets/**',
-  dst: 'public'
+  dst: 'public',
+  taskName: 'assets'
+
 });
 
 const wbpck = function(callback) {
