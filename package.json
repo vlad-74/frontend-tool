@@ -25,6 +25,7 @@
     "del": "^2.2.0",
     "express": "^3.21.2",
     "fs": "0.0.1-security",
+    "gulp-cli": "1.4.0",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-babel": "^6.1.1",

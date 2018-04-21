@@ -59,8 +59,7 @@ const wbpck = function(callback) {
 
   let options = {
     entry:   {
-      page: './frontend/js/page',
-      page2: './frontend/js/page2'
+      page: './frontend/js/page'
     },
     output:  {
       path:     __dirname + '/public/js',

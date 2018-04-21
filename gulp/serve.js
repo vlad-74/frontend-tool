@@ -9,7 +9,7 @@ module.exports = function(options) {
   	if(isDevelopment){
 	    browserSync.init({
 	      server: options.src,
-	      browser: ["chrome", "firefox"]
+	      browser: ["chrome"]
 	    });
 
 	    browserSync.watch(`${options.src}/**/*.*`).on('change', browserSync.reload);
